@@ -1,0 +1,107 @@
+{% load static %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+<script type="text/javascript">
+
+let map;
+var marker_list = [];
+var markers = {};
+var positions = []
+var markerCluster;
+var globalmarkerlist = [];
+var num = 0;
+
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("Google_Maps"), {
+    zoom: 9,
+    center: { lat: 37.820821, lng: -122.370199 },
+    mapTypeId: "terrain",
+    disableDefaultUI: true,
+  });
+}
+function setMapOnAll(map, selectbird) {
+  for (let i = 0; i < markers[selectbird].length; i++) {
+    markers[selectbird][i].setMap(map);
+  }
+}
+function hideMarkers(selectbird) {
+  setMapOnAll(null, selectbird);
+  delete markers[selectbird];
+}
+function addmarker(position, title, date, com_name) {
+  if (positions.includes(position['lat'])) {
+    position['lat'] += ((Math.random())/500);
+    position['lng'] += ((Math.random())/500);
+  }
+  var marker = new google.maps.Marker({
+    position: position,
+    map: map,
+    title: title,
+    optimized: false,
+    animation: google.maps.Animation.DROP,
+  });
+  marker_list.push(marker);
+  positions.push(position['lat']);
+  const infowindow = new google.maps.InfoWindow({
+    content: "BIRD: " + com_name + ' LOCATION: ' + title + ' DATE: ' + date,
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+      shouldFocus: false,
+    });
+  });
+}
+function Cluster() {
+  globalmarkerlist = [];
+  var keys = Object.keys(markers);
+  var rapter;
+  for (var i = 0; i < keys.length; i++) {
+    rapter = keys[i];
+    for (var v = 0; v < markers[rapter].length; v++) {
+      globalmarkerlist.push(markers[rapter][v]);
+    }
+  }
+  if (num > 0) {
+    markerCluster.clearMarkers();
+  }
+  markerCluster = new markerClusterer.MarkerClusterer({ map: map,  markers: globalmarkerlist});
+  num += 1
+}
+$(document).ready(function () {
+  $( "input[type=checkbox]" ).change(function() {
+    var selectbird = this.value
+    if (this.checked) {
+      let csrftoken = '{{ csrf_token }}'
+
+      $.ajax({
+        type: 'POST',
+        headers:{'X-CSRFToken':csrftoken},
+        url: "{% url 'selectbird' %}",
+        data: {"selectbird": selectbird},
+        traditional: true,
+        success: function (data) {
+          var results = data
+
+          results.forEach(([position, title, date, com_name], i) => {
+            addmarker(position, title, date, com_name)
+          });
+          markers[selectbird] = marker_list;
+          Cluster()
+          marker_list = []
+        }
+      })
+    }
+    else {
+      hideMarkers(selectbird);
+      markerCluster.clearMarkers();
+      Cluster();
+    }
+  })
+})
+
+</script>
