@@ -134,3 +134,6 @@ dmypy.json
 
 #Mac stuff
 .DS_Store
+
+#Exclude admin static files
+pandion/static/admin/
