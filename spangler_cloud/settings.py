@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG_Bol = str(os.getenv('DEBUG')) == 'True'
 DEBUG = DEBUG_Bol
 
-ALLOWED_HOSTS = ['127.0.0.1', 'www.pandion.cloud', 'pandion.cloud']
+ALLOWED_HOSTS = ['127.0.0.1', 'www.pandion.cloud', 'pandion.cloud', '10.0.0.236']
 
 
 # Application definition

@@ -1,0 +1,10 @@
+html,
+body {
+    height: 100%;
+}
+#search_button{
+  border-radius: 0
+}
+#search_button a:hover {
+  background-color: white;
+}
