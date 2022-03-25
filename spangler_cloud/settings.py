@@ -133,4 +133,8 @@ STATIC_ROOT = os.getenv('STATIC_ROOT')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+<<<<<<< HEAD
 CSRF_TRUSTED_ORIGINS = ['https://0.0.0.0:1337']
+=======
+CSRF_TRUSTED_ORIGINS = ['https://0.0.0.0:1337']
+>>>>>>> 66e675cf3c716fa5e0288a7fbdc448e21ecf5d61
