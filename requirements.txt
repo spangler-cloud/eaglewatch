@@ -8,8 +8,4 @@ requests==2.27.1
 sqlparse==0.4.2
 urllib3==1.26.8
 gunicorn==20.1.0
-<<<<<<< HEAD
 psycopg2-binary==2.9.1
-=======
-psycopg2-binary==2.9.1
->>>>>>> 66e675cf3c716fa5e0288a7fbdc448e21ecf5d61
