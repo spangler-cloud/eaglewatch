@@ -3,22 +3,22 @@ from datetime import date
 
 # Create your models here.
 class Bird(models.Model):
-    name = models.CharField(max_length=100, unique =  True)
-    id = models.CharField(max_length=100, unique =  True, primary_key=True)
-    type = models.CharField(max_length=100)
+    name = models.CharField(max_length=1000, unique =  True)
+    id = models.CharField(max_length=1000, unique =  True, primary_key=True)
+    type = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.name
 
 class Observation(models.Model):
-    speciesCode = models.CharField(max_length=100)
-    comName = models.CharField(max_length=100)
-    locId = models.CharField(max_length=100)
-    locName = models.CharField(max_length=100)
-    obsDt = models.CharField(max_length=100)
-    howMany = models.CharField(max_length=100)
-    lat = models.CharField(max_length=100)
-    lng = models.CharField(max_length=100)
+    speciesCode = models.CharField(max_length=1000)
+    comName = models.CharField(max_length=1000)
+    locId = models.CharField(max_length=1000)
+    locName = models.CharField(max_length=1000)
+    obsDt = models.CharField(max_length=1000)
+    howMany = models.CharField(max_length=1000)
+    lat = models.CharField(max_length=1000)
+    lng = models.CharField(max_length=1000)
     mod_date = models.DateField(default=date.today)
     class Meta:
         constraints = [
@@ -29,14 +29,14 @@ class Observation(models.Model):
         return self.comName + ': ' + self.obsDt
 
 class Notable(models.Model):
-    speciesCode = models.CharField(max_length=100)
-    comName = models.CharField(max_length=100)
-    locId = models.CharField(max_length=100)
-    locName = models.CharField(max_length=100)
-    obsDt = models.CharField(max_length=100)
-    howMany = models.CharField(max_length=100)
-    lat = models.CharField(max_length=100)
-    lng = models.CharField(max_length=100)
+    speciesCode = models.CharField(max_length=1000)
+    comName = models.CharField(max_length=1000)
+    locId = models.CharField(max_length=1000)
+    locName = models.CharField(max_length=1000)
+    obsDt = models.CharField(max_length=1000)
+    howMany = models.CharField(max_length=1000)
+    lat = models.CharField(max_length=1000)
+    lng = models.CharField(max_length=1000)
     mod_date = models.DateField(default=date.today)
     class Meta:
         constraints = [
