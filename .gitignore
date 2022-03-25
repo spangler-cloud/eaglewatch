@@ -137,3 +137,7 @@ dmypy.json
 
 #Exclude admin static files
 pandion/static/admin/
+
+.dockerignore
+Dockerfile
+entrypoint.sh
