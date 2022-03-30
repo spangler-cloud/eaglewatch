@@ -32,7 +32,6 @@ DEBUG = DEBUG_Bol
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
