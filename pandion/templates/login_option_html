@@ -1,0 +1,10 @@
+<!-- Insert this into base template nav when needed. -->
+{% if user.is_authenticated %}
+<li class="nav-item">
+  <a class="nav-link active text-center blue" href="/logout">{{user.first_name}}</a>
+</li>
+{% else %}
+<li class="nav-item">
+  <a class="nav-link active text-center" href="{% url 'login' %}">Login</a>
+</li>
+{% endif %}

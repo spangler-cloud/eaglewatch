@@ -25,8 +25,5 @@ def birdselectDB(request):
 def photos(request):
     return render(request, 'photos.html')
 
-def about(request):
-    return render(request, 'about.html')
-
-def test(request):
-    return render(request, 'test.html')
+def livestreams(request):
+    return render(request, 'livestreams.html')

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main_container2" style="overflow: auto;">
+  <div class="container pt-3">
+    <div class="row">
+      <div class="col-md-8 card mx-auto">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title">{{ post.species }}</h5>
+            </div>
+            <div class="col text-end">
+              <p class="card-text text-muted">{{ post.captured_Date }}</p>
+            </div>
+          </div>
+          <p class="card-text text-muted h6 pb-1">{{ post.location}}, {{ post.state}}</p>
+          <img class="pb-2 gallery" src="{{ post.photo.url }}">
+          <div class="row">
+            <div class="col-sm">
+              <p class="card-text text-center">{{ object.mm }}mm | {{ object.aperture }} | {{ object.shutter }}s | {{ object.iso }} ISO | {{ object.ev }} EV</p>
+            </div>
+          </div>
+          <div class="text-end">
+            <a class="link-primary pt-2" href="{{ post.photo.url }}" download> Download Image >></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,18 +1,39 @@
 html,
 body {
     height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
 }
-#search_button{
+.search_button{
   border-radius: 0
 }
-#ptop {
-  padding-top: 71px;
-  height: 95%;
+
+.gold {
+  color: #EBC200;
 }
+
+.btn-outline-dark:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-outline-dark:hover {
+  background-color: rgb(248, 249, 250);
+  color: black;
+  text-decoration: underline;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-outline-dark {
+  background-color: rgb(248, 249, 250);
+}
+
 @media (max-width: 991.98px) {
   .offcanvas-collapse {
     position: fixed;
-    top: 71px; /* Height of navbar */
+    top: 84.5px; /* Height of navbar */
     bottom: 0;
     left: 100%;
     width: 100%;
@@ -20,7 +41,7 @@ body {
     padding-left: 1rem;
     overflow-y: auto;
     visibility: hidden;
-    background-color: #28a745;
+    background-color: white;
     transition: transform .3s ease-in-out, visibility .3s ease-in-out;
   }
   .offcanvas-collapse.open {
@@ -64,6 +85,79 @@ body {
   color: #343a40;
 }
 
-.text-white-50 { color: rgba(255, 255, 255, .5); }
+#pandion_nav_text {
+  font-size: 45px;
+  color: #000;
+}
 
-.bg-purple { background-color: #6f42c1; }
+#nav_links {
+  width: 25%;
+  text-align:end;
+}
+
+#logo-image {
+  width: 25%;
+}
+
+.max_width_1080 {
+  max-width:1080px;
+}
+
+.light_color {
+  background-color: rgb(248, 249, 250);
+}
+
+.main_container {
+  padding-top: 84.5px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main_container2 {
+  padding-top: 84.5px;
+}
+
+.alert_container {
+  position: absolute;
+  padding-top: 120.5px;
+  z-index: 9999;
+}
+
+.text_center{
+  text-align: center;
+  padding: auto;
+}
+
+.top_c {
+ display: flex;
+}
+.inline {
+  display: inline-block;
+}
+
+.video_container {
+  display: flex;
+  justify-content: center;
+}
+
+iframe {
+  max-width: 900px;
+  max-height: 400px;
+}
+
+.blue {
+  color: #007bff!important;
+}
+
+.blue:hover:after{
+  content:'(Logout)';
+}
+
+.gallery {
+  width: 100%;
+  height: auto;
+}
+
+.h500 {
+  min-height: 500px;
+}
