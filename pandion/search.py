@@ -7,6 +7,11 @@ from datetime import timedelta
 from django.utils import timezone
 
 def SearchFunction(request):
+
+    '''
+    Takes desired species as input and returns all observations of that species over the last 14 days.
+    '''
+
     c = request.POST
     bird = c.get('selectbird')
     observations = []
