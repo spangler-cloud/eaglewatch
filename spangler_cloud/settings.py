@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pandion.apps.PandionConfig',
     'accounts.apps.AccountsConfig',
+    'BirdCounter.apps.BirdcounterConfig',
     'blog.apps.BlogConfig',
     'crispy_forms',
     'storages',

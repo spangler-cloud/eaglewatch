@@ -25,4 +25,5 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('', include('pandion.urls')),
     path('', include('accounts.urls')),
+    path('', include('BirdCounter.urls')),
 ]
