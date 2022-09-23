@@ -12,7 +12,7 @@ eBIRD_KEY = os.getenv('eBIRD_KEY')
 class Command(BaseCommand):
     def Update_DB(self, bird):
         headers =  {'X-eBirdApiToken' : eBIRD_KEY}
-        locations = ('US-WA')
+        locations = ('US-WA',)
         i = 0
         for location in locations:
             print("API call for: " + location + ', ' + bird)
