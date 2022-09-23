@@ -27,3 +27,6 @@ def photos(request):
 
 def livestreams(request):
     return render(request, 'livestreams.html')
+
+def home(request):
+    return render(request, 'home.html')

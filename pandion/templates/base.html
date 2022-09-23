@@ -15,11 +15,17 @@
 <body>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light mx-auto p-0" aria-label="Main navigation">
     <div class="container-fluid border-bottom border-dark p-2 max_width_1080">
-      <div id="logo-image">
+
+      <div id="logo-image" class="col-4">
         <img src="{% static 'images/eagle.png'%}" class="navbar-brand m-0 p-0" href="#" style="width:55px;height:55px;">
       </div>
-      <a class="navbar-brand p-0 m-0" id="pandion_nav_text" href="#">Pandion</a>
-      <div id="nav_links">
+      <div class="col-4 text-center">
+
+        <a class="navbar-brand p-0 m-0 text-center fs-3" href="#">Eagle Watch</a>
+      </div>
+      
+
+      <div id="nav_links" class="col-4">
         <button class="navbar-toggler" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

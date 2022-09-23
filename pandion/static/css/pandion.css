@@ -86,8 +86,8 @@ body {
 }
 
 #pandion_nav_text {
-  font-size: 45px;
   color: #000;
+  text-align: center;
 }
 
 #nav_links {
@@ -115,6 +115,7 @@ body {
 
 .main_container2 {
   padding-top: 84.5px;
+  max-height: 100vh;
 }
 
 .alert_container {
@@ -160,4 +161,9 @@ iframe {
 
 .h500 {
   min-height: 500px;
+}
+
+.homeimage {
+  width: auto;
+  height: 100%;
 }
