@@ -33,7 +33,7 @@ body {
 @media (max-width: 991.98px) {
   .offcanvas-collapse {
     position: fixed;
-    top: 84.5px; /* Height of navbar */
+    top: 72px; /* Height of navbar */
     bottom: 0;
     left: 100%;
     width: 100%;
@@ -99,6 +99,13 @@ body {
   width: 25%;
 }
 
+.z1 {
+  z-index: -1;
+}
+.z2 {
+  z-index: -2;
+}
+
 .max_width_1080 {
   max-width:1080px;
 }
@@ -108,9 +115,13 @@ body {
 }
 
 .main_container {
-  padding-top: 84.5px;
+  padding-top: 72px;
   height: 100%;
   overflow: hidden;
+}
+
+.test_con {
+  padding-top: 72px;
 }
 
 .main_container2 {
@@ -166,4 +177,51 @@ iframe {
 .homeimage {
   width: auto;
   height: 100%;
+}
+
+
+/*
+ * Globals
+ */
+
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+
+/*
+ * Base structure
+ */
+
+.coverbody {
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+
+
+
+.bg {
+  /* The image used */
+  background-image: url("https://images3.alphacoders.com/111/1117942.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.h60 {
+  height: 60%;
 }

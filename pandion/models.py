@@ -19,6 +19,7 @@ class Observation(models.Model):
     howMany = models.CharField(max_length=1000)
     lat = models.CharField(max_length=1000)
     lng = models.CharField(max_length=1000)
+    state = models.CharField(max_length=1000)
     mod_date = models.DateField(default=date.today)
     class Meta:
         constraints = [

@@ -4,20 +4,21 @@ from . import search
 from . import recent_list
 from .models import Bird
 from .models import Notable
+from BirdCounter.models import State
 import requests
 import json
 from dotenv import load_dotenv
 import os
 
 def index(request):
-    rapters = Bird.objects.filter(type="Rapter").values_list('id', 'name')
-    owls = Bird.objects.filter(type="Owl").values_list('id', 'name')
-    passeriformes = Bird.objects.filter(type="Passeriformes").values_list('id', 'name')
-    waterfowl = Bird.objects.filter(type="Waterfowl").values_list('id', 'name')
+    south = State.objects.filter(region="South").values_list('id', 'name')
+    west = State.objects.filter(region="West").values_list('id', 'name')
+    midwest = State.objects.filter(region="Midwest").values_list('id', 'name')
+    northeast = State.objects.filter(region="Northeast").values_list('id', 'name')
     recentlist = recent_list.ListFunction()
     load_dotenv()
     Google_Maps_Key = os.getenv('Google_Maps_Key')
-    return render(request, 'search.html',{'rapters':rapters, "owls":owls, "passeriformes":passeriformes, "waterfowl":waterfowl, "Google_Maps_Key":Google_Maps_Key, "recentlist":recentlist })
+    return render(request, 'search.html',{"south":south, "west":west, "midwest":midwest, "northeast": northeast, "Google_Maps_Key":Google_Maps_Key, "recentlist":recentlist })
 
 def birdselectDB(request):
     return JsonResponse(search.SearchFunction(request), status=200, safe=False)

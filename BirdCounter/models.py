@@ -9,3 +9,11 @@ class Eagle(models.Model):
 
     def __str__(self):
         return self.name
+
+class State(models.Model):
+    name = models.CharField(max_length=1000, unique =  True)
+    id = models.CharField(max_length=1000, unique =  True, primary_key=True)
+    region = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.name

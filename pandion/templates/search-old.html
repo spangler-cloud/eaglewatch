@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid main_container">
+  <div class="light_color">
+    <div class="row mx-auto max_width_1080">
+      <div class="col-6 px-0">
+        <button class="btn btn-outline-dark w-100 border-0 search_button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+          <span><i class="bi bi-check2-square gold"></i></span> Species Search
+        </button>
+      </div>
+      <div class="col-6 px-0">
+        <button class="btn btn-outline-dark w-100 border-0 search_button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+          <span><i class="bi bi-card-text gold"></i></span> Rare Sightings
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row h-100">
+    <div class="col-lg-12 p-0">
+      <div id="Google_Maps" style="height: 100%"></div>
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key={{ Google_Maps_Key }}&callback=initMap&v=weekly"
+      async defer
+      ></script>
+    </div>
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Species Selection</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                Raptors
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                {% for bird in rapters %}
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="{{ bird.0 }}" name="{{ bird.0 }}" value="{{ bird.0 }}">
+                  <label class="form-check-label" for="{{ bird.0 }}">{{ bird.1 }}</label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                Owls
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                {% for bird in owls %}
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="{{ bird.0 }}" name="{{ bird.0 }}" value="{{ bird.0 }}">
+                  <label class="form-check-label" for="{{ bird.0 }}">{{ bird.1 }}</label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingfour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
+                Passeriformes
+              </button>
+            </h2>
+            <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                {% for bird in passeriformes %}
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="{{ bird.0 }}" name="{{ bird.0 }}" value="{{ bird.0 }}">
+                  <label class="form-check-label" for="{{ bird.0 }}">{{ bird.1 }}</label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                Waterfowl
+              </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                {% for bird in waterfowl %}
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="{{ bird.0 }}" name="{{ bird.0 }}" value="{{ bird.0 }}">
+                  <label class="form-check-label" for="{{ bird.0 }}">{{ bird.1 }}</label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Notable Species Feed</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <table class="table">
+          <tbody>
+            {% for o in recentlist %}
+            <tr>
+              <td>
+                <p><b>Species: </b>{{ o.0 }}</p>
+                <p><b>Last Location: </b>{{ o.1 }}</p>
+                <p><b>Last Seen: </b>{{ o.2 }}</p>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" name="flexRadioDefault" id="notable7" value="{{ o.3 }}">
+                  <label class="form-check-label" for="notable7">
+                    Display Sightings on Map
+                  </label>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
