@@ -11,10 +11,10 @@ from dotenv import load_dotenv
 import os
 
 def index(request):
-    south = State.objects.filter(region="South").values_list('id', 'name')
-    west = State.objects.filter(region="West").values_list('id', 'name')
-    midwest = State.objects.filter(region="Midwest").values_list('id', 'name')
-    northeast = State.objects.filter(region="Northeast").values_list('id', 'name')
+    south = State.objects.filter(region="South").values_list('id', 'name').order_by('name')
+    west = State.objects.filter(region="West").values_list('id', 'name').order_by('name')
+    midwest = State.objects.filter(region="Midwest").values_list('id', 'name').order_by('name')
+    northeast = State.objects.filter(region="Northeast").values_list('id', 'name').order_by('name')
     recentlist = recent_list.ListFunction()
     load_dotenv()
     Google_Maps_Key = os.getenv('Google_Maps_Key')

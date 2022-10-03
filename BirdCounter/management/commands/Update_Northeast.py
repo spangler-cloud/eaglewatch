@@ -37,7 +37,7 @@ class Command(BaseCommand):
 
     def State_Gen(self):
         states = []
-        for state in State.objects.filter(region="South").values_list('id'):
+        for state in State.objects.filter(region="Northeast").values_list('id'):
             states.append(state[0])
 
         self.Update_DB(states)

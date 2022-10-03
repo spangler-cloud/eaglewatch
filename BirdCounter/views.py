@@ -2,5 +2,12 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-def eaglewatch(request):
-    return render(request, 'eaglewatch.html')
+def tracker(request):
+    return render(request, 'tracker.html')
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
+
