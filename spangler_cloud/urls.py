@@ -22,9 +22,10 @@ app_name = "pandion"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('BirdCounter.urls')),
     path('', include('pandion.urls')),
     path('', include('blog.urls')),
     
     path('', include('accounts.urls')),
-    path('', include('BirdCounter.urls')),
+    
 ]

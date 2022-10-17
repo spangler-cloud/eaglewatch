@@ -6,6 +6,7 @@ import json
 from django.core.management.base import BaseCommand, CommandError
 from dotenv import load_dotenv
 import os
+from pandion.toplocations import AddTotal
 
 load_dotenv()
 eBIRD_KEY = os.getenv('eBIRD_KEY')
@@ -30,6 +31,10 @@ class Command(BaseCommand):
                     i += 1
                 try:
                     z.save()
+                    try:
+                        AddTotal(spot["locId"], spot["locName"], spot[ "howMany"], state )
+                    except:
+                        AddTotal(spot["locId"], spot["locName"], "1", state )
                 except:
                     print('Duplicte or bad entry, skiping...')
                     continue

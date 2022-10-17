@@ -19,5 +19,6 @@ def SearchFunction(request):
     if bird in [''.join(y) for y in State.objects.filter().values_list('id')]:
         for x in Observation.objects.filter(state__contains=bird, obsDt__range=[timezone.now().date() - timedelta(days=14), timezone.now().date()]).values():
             observation = {'lat': float(x['lat']), 'lng': float(x['lng'])}, x['locName'], x["obsDt"], x["comName"]
-            observations.append(observation)
+            for y in range(int(x["howMany"])):
+                observations.append(observation)
     return observations

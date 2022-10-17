@@ -44,7 +44,7 @@ function addmarker(position, title, date, com_name) {
   marker_list.push(marker);
   positions.push(position['lat']);
   const infowindow = new google.maps.InfoWindow({
-    content: "BIRD: " + com_name + ' LOCATION: ' + title + ' DATE: ' + date,
+    content: title + " - " + date,
   });
 
   marker.addListener("click", () => {

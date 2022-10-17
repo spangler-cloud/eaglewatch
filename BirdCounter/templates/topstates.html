@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid main_container2">
+    
+
+
+      <div class="row text-center w-100">
+        <p class=my-0>Bald Eagle Report - Top States</p>
+        <p class=my-0>Last 14 days: {{ df }} - {{ td }}</p>
+      </div>
+      <div class="container-md">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center w-50">Location</th>
+                <th scope="col" class="text-center w-50">Sightings </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for ts in topstates %}
+              <tr>
+                <td class="text-center w-50">{{ ts.0 }}</td>
+                <td class="text-center w-50">{{ ts.1 }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+
+    
+    
+  </div>
+
+
+
+
+  
+  {% endblock %}
